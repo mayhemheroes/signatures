@@ -10,7 +10,7 @@ RUN cargo install cargo-fuzz
 ## Add source code to the build stage.
 ADD . /signatures/
 
-WORKDIR /signatures/mayhem/
+WORKDIR /signatures/fuzz/
 
 RUN cargo +nightly fuzz build
 
@@ -18,4 +18,4 @@ FROM --platform=linux/amd64 rustlang/rust:nightly
 
 ## TODO: Change <Path in Builder Stage>
 
-COPY --from=builder /signatures/mayhem/target/x86_64-unknown-linux-gnu/release/dsa_verify /
+COPY --from=builder /signatures/fuzz/target/x86_64-unknown-linux-gnu/release/dsa_verify /
