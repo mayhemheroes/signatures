@@ -1,0 +1,7 @@
+project: signatures
+target: dsa_verify
+duration: 90
+
+cmds:
+    - cmd: /dsa_verify
+
